@@ -1,4 +1,24 @@
+import { useEffect, useState } from "react";
+import updateDate from "../../utils/UpdateTime";
+
 const DateAndTime = () => {
+  const [currentDateTime, setCurrentDateTime] = useState(new Date());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentDateTime((prevDateTime) => updateDate(prevDateTime));
+    }, 1000 * 60 * 60 * 24); // Update Time every 24 hours
+    
+    return () => clearInterval(interval);
+  }, []);
+
+  const formattedDateTime = currentDateTime.toLocaleString("en-US", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
   return (
     <div className="flex items-center space-x-4">
       <svg
@@ -51,7 +71,8 @@ const DateAndTime = () => {
           strokeLinejoin="round"
         />
       </svg>
-      <span>Thursday, February 25, 2021</span>
+      {/* <span>Thursday, February 25, 2021</span> */}
+      <span>{formattedDateTime}</span>
     </div>
   );
 };
