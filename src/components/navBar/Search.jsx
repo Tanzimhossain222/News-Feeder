@@ -13,11 +13,17 @@ const Search = () => {
     setQuery("");
   };
 
+  let timeout;
+
   const handleChange = (event) => {
-    setQuery(event.target.value);
+    clearTimeout(timeout);
+    const value = event.target.value;
+    setQuery(value);
+    timeout = setTimeout(() => handleSearch(value), 1000);
   };
 
   const handleSubmit = () => {
+    clearTimeout(timeout);
     handleSearch(query);
     setIsOpen(false);
   };
