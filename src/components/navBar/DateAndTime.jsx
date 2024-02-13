@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import updateDate from "../../utils/UpdateTime";
+import { updateDate } from "../../utils/TimeConvert";
 
 const DateAndTime = () => {
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
@@ -8,7 +8,7 @@ const DateAndTime = () => {
     const interval = setInterval(() => {
       setCurrentDateTime((prevDateTime) => updateDate(prevDateTime));
     }, 1000 * 60 * 60 * 24); // Update Time every 24 hours
-    
+
     return () => clearInterval(interval);
   }, []);
 
