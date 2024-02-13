@@ -1,4 +1,3 @@
-
 # News Feeder - Assignment 4
 
 Welcome to the News Feeder project for Assignment 4.
@@ -18,6 +17,10 @@ This project is a news feed application developed as part of Assignment 4. It al
 - React.js
 - Tailwind CSS
 - JavaScript
+
+## Diagrams
+
+![News Feeder Diagram](./diagram/News_Feeder.jpg)
 
 ## Getting Started
 
