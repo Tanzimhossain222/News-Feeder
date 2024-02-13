@@ -1,12 +1,8 @@
+import PropsType from "prop-types";
 import { formatDate } from "../../utils/TimeConvert";
 
-const LeftSide = ({ newsData = [] }) => {
-  // newsData.map((newsItem, index) => {
-  //   if (newsItem.title === null || newsItem.title === undefined) {
-  //     console.log("No title");
-  //   }
-  // });
-
+const LeftSide = ({ newsData }) => {
+  console.log('Rendering LeftSide component...');
   return (
     <div className="col-span-12 grid grid-cols-12 gap-6 self-start xl:col-span-8">
       {newsData.map((newsItem, index) => (
@@ -31,6 +27,10 @@ const LeftSide = ({ newsData = [] }) => {
       ))}
     </div>
   );
+};
+
+LeftSide.propTypes = {
+  newsData: PropsType.array.isRequired,
 };
 
 export default LeftSide;

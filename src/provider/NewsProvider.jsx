@@ -5,17 +5,26 @@ import useNewsQuery from "../hooks/useNewsQuery";
 
 const NewsProvider = ({ children }) => {
   const [category, setCategory] = useState("");
-  const newsData = useNewsQuery(category);
+  const [query, setQuery] = useState("");
+
+  //fetch data
+  const newsData = useNewsQuery(category, query);
 
   const handleCategorySelect = (selectedCategory) => {
+    setQuery("");
     setCategory(selectedCategory);
   };
 
-  //count render
-  console.log("NewsProvider render");
+  const handleSearch = (searchQuery) => {
+    setCategory("");
+    setQuery(searchQuery);
+  };
+
 
   return (
-    <NewsContext.Provider value={{ newsData, handleCategorySelect }}>
+    <NewsContext.Provider
+      value={{ newsData, handleCategorySelect, handleSearch }}
+    >
       {children}
     </NewsContext.Provider>
   );
