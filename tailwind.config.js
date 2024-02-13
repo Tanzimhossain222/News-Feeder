@@ -6,11 +6,19 @@ export default {
   ],
   theme: {
     extend: {
-      container:
-      {
+      container: {
         center: true,
-        padding: '2rem',
+        padding: "1rem",
       },
+      colors: {
+        clifford: "#da373d",
+      },
+      fontFamily: {
+        'fira-sans': ['Fira Sans', 'sans-serif'],
+        'tt-commons': ['TT Commons', 'sans-serif'],
+        'publico-headline-web': ['Publico Headline Web', 'serif'],
+      },
+      
     },
   },
   plugins: [],
