@@ -71,7 +71,6 @@ const DateAndTime = () => {
           strokeLinejoin="round"
         />
       </svg>
-      {/* <span>Thursday, February 25, 2021</span> */}
       <span>{formattedDateTime}</span>
     </div>
   );

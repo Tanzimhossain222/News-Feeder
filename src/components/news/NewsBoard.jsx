@@ -4,10 +4,10 @@ import RightSide from "./RightSide";
 
 const NewsBoard = () => {
   const { newsData } = useNews();
-  const { articles, result } = newsData;
+  const { articles, result } = newsData;  //Here result is the search result from the search query and articles is the top headlines data
   const displayData = result ? result : articles;
 
-  //if result is not available, Show No Data Found
+  //if result is not available, Show No data found message
   if (result && result.length === 0) {
     return (
       <div className="flex items-center justify-center h-32">

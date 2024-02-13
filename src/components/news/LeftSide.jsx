@@ -17,7 +17,11 @@ const LeftSide = ({ newsData }) => {
             <>
               <div className="col-span-12 lg:col-span-4">
                 <a href={newsItem.url}>
-                  <h3 className="mb-2.5 text-2xl font-bold lg:text-[28px]">
+                  <h3
+                    className={`mb-2.5 text-2xl font-bold ${
+                      index < 1 ? "lg:text-[28px]" : "lg:text-2xl"
+                    }`}
+                  >
                     {newsItem.title}
                   </h3>
                 </a>

@@ -1,5 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 
+const SEARCH_ENDPOINT = import.meta.env.VITE_NEWS_SEARCH_ENDPOINT;
+const NEWS_ENDPOINT = import.meta.env.VITE_NEWS_ENDPOINT;
+
 const useNewsQuery = (category, query) => {
   const [newsData, setNewsData] = useState([]);
 
@@ -14,11 +17,11 @@ const useNewsQuery = (category, query) => {
    * Learn more: https://react.dev/reference/react/useCallback
    */
   const fetchNews = useCallback(async (category, query) => {
-    let url = "http://localhost:8000/v2/top-headlines";
+    let url = NEWS_ENDPOINT;
 
     /* If query is present, we need to change the URL to search endpoint */
     if (query) {
-      url = `http://localhost:8000/v2/search?q=${query}`;
+      url = `${SEARCH_ENDPOINT}?q=${query}`;
     } else if (category) {
       url += `?category=${category}`;
     }
