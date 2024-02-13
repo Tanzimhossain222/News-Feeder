@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
 
-const useNewsQuery = () => {
+const useNewsQuery = (category) => {
   const [newsData, setNewsData] = useState([]);
 
-  const fetchTopHeadlines = async () => {
-    const url = "http://localhost:8000/v2/top-headlines";
+  const fetchTopHeadlines = async (category = "") => {
+    let url = "http://localhost:8000/v2/top-headlines";
+
+    if (category) {
+      url += `?category=${category}`;
+    }
 
     try {
       const response = await fetch(url);
@@ -16,8 +20,8 @@ const useNewsQuery = () => {
   };
 
   useEffect(() => {
-    fetchTopHeadlines();
-  }, []);
+    fetchTopHeadlines(category);
+  }, [category]);
 
   return newsData;
 };
